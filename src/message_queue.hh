@@ -2,7 +2,6 @@
 #define MESSAGE_QUEUE_HH_
 
 #include "log.hh"
-#include <chrono>
 #include <condition_variable>
 #include <memory>
 #include <mutex>
@@ -19,10 +18,9 @@ public:
 template <typename T>
 class Message_Queue {
 public:
-
     void push(std::unique_ptr<T> message) {
         std::lock_guard<std::mutex> lck(mtx);
-        queue.emplace(std::move(message));
+        queue.emplace_back(std::move(message));
         cv.notify_one();
     }
 
@@ -32,7 +30,7 @@ public:
             cv.wait(lck, [&]{return !queue.empty();});
         }
         auto ret = std::move(queue.front());
-        queue.pop();
+        queue.pop_back();
         return ret;
     }
 
@@ -47,7 +45,7 @@ public:
     }
 
 private:
-    std::queue<std::unique_ptr<T>> queue;
+    std::vector<std::unique_ptr<T>> queue;
     std::mutex mtx;
     std::condition_variable cv;
 };

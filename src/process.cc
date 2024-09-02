@@ -8,7 +8,6 @@
 #include <sys/wait.h>
 #include <thread>
 #include <unistd.h>
-#include "sys/mman.h"
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/mman.h>

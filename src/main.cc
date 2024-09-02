@@ -97,7 +97,7 @@ void workProcess() {
     LOG("workProcess");
     linkShareMemory(share_memory);
     // LOG("g_pfmbgs:", g_pfmbgs);
-    test_config();
+    // test_config();
 
     std::this_thread::sleep_for(std::chrono::seconds(100));
 }

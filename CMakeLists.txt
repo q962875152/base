@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20.0)
 
-set(CMAKE_CXX_STANDARD 17)  # 设置为C++17版本
+project(base)
+
+set(CMAKE_CXX_STANDARD 20)  # 设置为C++17版本
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)  # 推荐: 确保 -std=c++17 而不是 -std=gnu++17
 
@@ -17,8 +19,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
 # 设置bin是调试版本
 set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-SET(BIN_OUTPUT "binary")
+SET(BIN_OUTPUT "base")
 
 SET(PROJECT_ROOT_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 

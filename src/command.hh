@@ -14,3 +14,4 @@ private:
     class CommandImpl;
     std::unique_ptr<CommandImpl> pimpl;
 };
+

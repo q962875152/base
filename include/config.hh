@@ -21,7 +21,7 @@
 #include <sys/param.h>
 #include "../src/log.hh"
 
-const std::string config_file_path = "/home/chengjun/cpp/code/radioservice.json";
+const std::string_view config_file_path = "/home/chengjun/cpp/code/radioservice.json";
 
 using namespace rapidjson;
 
